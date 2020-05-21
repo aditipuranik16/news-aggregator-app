@@ -81,7 +81,7 @@
     transition: all 0.3s;
   }
   
-  .img_area {
+  .img-area {
     width: 265px;
     height: 250px;
     background-color: var(--img-background);
@@ -129,7 +129,7 @@
     text-decoration: none;
   }
   
-  .not-found {
+  #not-found {
     color: var(--font-color);
     font-family: sans-serif;
     font-size: 35px;
@@ -137,7 +137,7 @@
     list-style-type: none;
   }
   
-  .load {
+  .loading {
     color: var(--font-color);
     font-family: sans-serif;
     font-size: 35px;
@@ -192,14 +192,14 @@
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
     }
-    .not-found {
+    #not-found {
       color: var(--font-color);
       font-family: sans-serif;
       font-size: 25px;
-      margin-left: -20px;
+      margin-left: 20px;
       list-style-type: none;
     }
-    .load {
+    .loading {
       color: var(--font-color);
       font-family: sans-serif;
       font-size: 25px;
@@ -210,7 +210,7 @@
       display: inline-block;
       margin-left: -14px;
     }
-    .img_area {
+    .img-area {
       width: 265px;
       height: 250px;
       background-color: var(--img-background);
