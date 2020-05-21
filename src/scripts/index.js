@@ -9,7 +9,7 @@ function getNews(news)
         ` <section class="container">
           <li class="article">
             <a class="article-link" href="${ind.url}" target="_blank">
-            <div class="img_area">
+            <div class="img-area">
             <img src="${ind.urlToImage}" class="article-img" alt="${ind.title}"></img>
             </div>
             <h2 class="article-title">${ind.title}</h2>
@@ -24,13 +24,13 @@ function getNews(news)
   }
   else
   { 
-    article_area.innerHTML='<li class="not-found">No article was found based on the search.</li>';
+    article_area.innerHTML='<li id="not-found">No article was found based on the search.</li>';
   }
 };
 
 async function retreive(searchValueText=""){
 
-    article_area.innerHTML='<p class="load">News are Loading...</p>';
+    article_area.innerHTML='<p class="loading">News are Loading...</p>';
     
     if(searchValueText!=""){
       url = `https://newsapi.org/v2/everything?q=${searchValueText}&apiKey=${apikey}`;
