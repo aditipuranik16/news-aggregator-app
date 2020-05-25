@@ -30,7 +30,7 @@ function getNews(news)
 
 async function retreive(searchValueText=""){
 
-    article_area.innerHTML='<p class="loading">News are Loading...</p>';
+    article_area.innerHTML='<p id="loading">News are Loading...</p>';
     
     if(searchValueText!=""){
       url = `https://newsapi.org/v2/everything?q=${searchValueText}&apiKey=${apikey}`;
