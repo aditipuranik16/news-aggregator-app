@@ -67,7 +67,7 @@
     padding-right: 30px;
   }
   
-  .li article {
+  .li, .article {
     list-style-type: none;
     display: inline;
   }
@@ -87,13 +87,13 @@
     background-color: var(--img-background);
   }
   
-  .img article-img {
+  .img, .article-img {
     margin-top: 20px;
     width: 265px;
     height: 205px;
   }
   
-    .h2 article-title {
+    .h2, .article-title {
     background: none;
     font-family: sans-serif;
     overflow: hidden;
@@ -103,7 +103,7 @@
     -webkit-box-orient: vertical;
   }
   
-    .p article-description {
+    .p, .article-description {
     font-size: 25px;
     color: var(--font-color);
     background: none;
@@ -115,7 +115,7 @@
     font-family: sans-serif;
   }
   
-    .span article-author {
+    .span, .article-author {
     background: none;
     font-size: 20px;
     font-family: Trebuchet MS;
@@ -205,7 +205,7 @@
       font-size: 25px;
       margin-left: 25px;
     }
-    .li article {
+    .li, .article {
       list-style-type: none;
       display: inline-block;
       margin-left: -14px;
@@ -215,7 +215,7 @@
       height: 250px;
       background-color: var(--img-background);
     }
-    .img article-img {
+    .img, .article-img {
       margin-top: 20px;
       width: 265px;
       height: 220px;
