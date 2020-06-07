@@ -24,13 +24,13 @@ function getNews(news)
   }
   else
   { 
-    article_area.innerHTML='<li id="not-found">No article was found based on the search.</li>';
+    article_area.innerHTML='<h3 class="not-found">No article was found based on the search.</li>';
   }
 };
 
 async function retreive(searchValueText=""){
 
-    article_area.innerHTML='<p id="loading">News are Loading...</p>';
+    article_area.innerHTML='<p class="loading">News are Loading...</p>';
     
     if(searchValueText!=""){
       url = `https://newsapi.org/v2/everything?q=${searchValueText}&apiKey=${apikey}`;
