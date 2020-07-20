@@ -1,60 +1,60 @@
-const apikey="3ad9365d4c844c31abfa4b4b1c526c52";
-var article_area=document.getElementById("news-articles");
+(function () {
 
-function getNews(news){
-  let output="";
-  if(news.totalResults>0){
-    news.articles.forEach(ind=>{
-      output+= 
-        ` <section class="container">
-          <li class="article"><a class="article-link" href="${ind.url}" target="_blank">
-          <div class="img_area">
-          <img src="${ind.urlToImage}" class="article-img" alt="${ind.title}"></img>
-          </div>
-          <h2 class="article-title">${ind.title}</h2>
-          <p class="article-description">${ind.description || "Description not available"}</p> <br>
-          <span class="article-author">-${ind.author? ind.author: "Anon"}</span><br>
-          </a>
-          </li>
-          </section>
-        `;
-    });
-    article_area.innerHTML=output;
-  }
-  else
-  { 
-    article_area.innerHTML='<h3 class="not-found">No article was found based on the search.</li>';
-  }
-};
+    let API_KEY = "3ad9365d4c844c31abfa4b4b1c526c52";
+    let FETCH_URL = "http://newsapi.org/v2/";
+    var ulArticles = document.getElementById("news-articles");
 
-async function retreive(searchValueText=""){
-
-    article_area.innerHTML='<p class="load">News are Loading...</p>';
-    
-    if(searchValueText!=""){
-      url=`https://newsapi.org/v2/everything?q=${searchValueText}&apiKey=${apikey}`;
+    function getAllArticles() {
+        ApiCaller(`top-headlines?country=in&apiKey=${API_KEY}`)
+            .then(response => response.json())
+            .then(jsonResponse => {
+                bindArticles(jsonResponse.articles, jsonResponse.totalResults)
+            });
     }
-    else
-    {
-      url=`https://newsapi.org/v2/top-headlines?country=in&apiKey=${apikey}`;
+
+    function getSearchArticles(event) {
+        ApiCaller(`everything?q=${event.target.value}&apiKey=${API_KEY}`)
+            .then(response => response.json())
+            .then(jsonResponse => {
+                bindArticles(jsonResponse.articles, jsonResponse.totalResults)
+            });
     }
-    const response=await fetch(url);
-    const result=await retysponse.json();
-    getNews(result);
-}
 
-async function searchvalue(e){  
-    if (event.which === 13 || event.keyCode === 13 || event.key === "Enter")
-     {
-      retreive(e.target.value);
-     }
-};
+    function ApiCaller(url) {
+        var req = new Request(FETCH_URL + url);
+        return fetch(req);
+    }
 
-function start(){
-  document.getElementById("search").addEventListener('keypress',searchvalue);
-  retreive();
-}
+    function bindArticles(articles, totalResults) {
+        let output = ``;
 
-(function(){
-  start();}
-)();
+        if (totalResults > 0) {
+            articles.forEach(article => {
+                output += ` <section class="container">
+                                <li class="article">
+                                    <a class="article-link" href="${article.url}" target="_blank">
+                                        <div class="img-area">
+                                            <img src="${article.urlToImage}" class="article-img" alt="${article.title}"></img>
+                                        </div>
+                                        <h2 class="article-title">${article.title}</h2>
+                                        <p class="article-description">${article.description || "Description not available"}</p> <br>
+                                        <span class="article-author">-${article.author ? article.author : "Anon"}</span><br>
+                                    </a>
+                                </li>
+                            </section>
+                        `;
+            });
+            ulArticles.innerHTML = output;
+        } else {
+            ulArticles.innerHTML = `<h3 class="not-found">No article was found based on the search.</li>`;
+        }
+    }
+
+    ulArticles.innerHTML = '<p class="load">News are Loading...</p>';
+    //binding event to the search input
+    document.getElementById("search").addEventListener('change', getSearchArticles);
+
+    //getting all the articles
+    getAllArticles();
+
+})();
