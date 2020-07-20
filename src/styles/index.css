@@ -26,74 +26,7 @@ body {
   display: inline-block;
 }
 
-.toggletxt {
-  color: var(--font-color);
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  margin-left: 16%;
-  display: inline-block;
-}
 
-#toggle_action {
-  display: none;
-}
-
-/* CSS FOR ROUNDED SLIDE BARS */
-.switch {
-  margin-top: 25px;
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: wheat;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-input:checked + .slider {
-  background-color: rgba(39, 35, 35, 0.986);
-}
-
-input:focus + .slider {
-  -webkit-box-shadow: 0 0 1px;
-          box-shadow: 0 0 1px;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
-
-/* CSS FOR SEARCH BAR */
 .search-bar {
   margin-top: 4%;
   margin-left: 5%;
@@ -113,7 +46,7 @@ input:checked + .slider:before {
   border-right: black;
 }
 
-/* CSSS FOR NEW AREA */
+
 #news-articles {
   margin-left: 20px;
   display: -webkit-box;
@@ -149,7 +82,7 @@ input:checked + .slider:before {
   transition: all 0.3s;
 }
 
-.img_area {
+.img-area {
   width: 265px;
   height: 250px;
   background-color: var(--img-background);
@@ -212,8 +145,7 @@ input:checked + .slider:before {
   margin-left: 25px;
 }
 
-/* Responsive Web design for small devices*/
-/* Extra small devices (phones, 600px and down) */
+
 @media only screen and (max-width: 600px) {
   .mainheading {
     color: var(--font-color);
@@ -226,16 +158,6 @@ input:checked + .slider:before {
     padding-left: 23px;
     padding-right: 23px;
     display: inline-block;
-  }
-  .toggletxt {
-    color: var(--font-color);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    display: block;
-    margin-top: 7%;
-    font-size: larger;
-  }
-  .switch {
-    margin-left: 135px;
   }
   .search-bar {
     width: 580px;
@@ -292,7 +214,7 @@ input:checked + .slider:before {
     display: inline-block;
     margin-left: -14px;
   }
-  .img_area {
+  .img-area {
     width: 265px;
     height: 250px;
     background-color: var(--img-background);
